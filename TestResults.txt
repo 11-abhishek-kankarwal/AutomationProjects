@@ -1,0 +1,10 @@
+
+Header = Products
+verified. Login Successfull 
+
+//---------------------
+
+Product in cart : [Sauce Labs Backpack, Sauce Labs Fleece Jacket]
+Sauce Labs Backpack : is verified in cart
+Sauce Labs Fleece Jacket : is verified in cart
+---------------------
