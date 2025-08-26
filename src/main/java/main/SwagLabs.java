@@ -1,6 +1,5 @@
 package main;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +17,7 @@ public class SwagLabs{
 	public static WebDriver driver;
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		settingUp();
 		
@@ -29,17 +28,17 @@ public class SwagLabs{
 		login("standard_user","secret_sauce");
 		
 		//-----------------------------------------------------
-		//login flow
+		//verify login
 		verifyLogin();
 				
 		//-----------------------------------------------------
-		//login flow
+		//add to cart
 		addToCart();
 		
 		
 		//-----------------------------------------------------
 		//go to cart
-		
+		 Thread.sleep(1000);
 		getElement(CartIcon).click();
 		
 		//-----------------------------------------------------
@@ -57,7 +56,7 @@ public class SwagLabs{
 	
 	
 	//======================================================
-	
+	//-------setting up the browser------
 	
 	 private static void settingUp() {
 
@@ -82,18 +81,19 @@ public class SwagLabs{
 
 
 	        driver = new ChromeDriver(options);
-	        //driver = new FirefoxDriver();
+	       // driver = new FirefoxDriver();
 	       // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-	       // driver.manage().window().maximize();
+	        driver.manage().window().maximize();
 
 	    }
 	
 	 //-------------------------------------------------
 	//-------login-------
 	
-	 public static void login(String user, String PWD)
+	 public static void login(String user, String PWD) throws InterruptedException
 		{
+		 Thread.sleep(1000);
 		 	getElement(username).sendKeys(user);
 			
 			getElement(pwd).sendKeys(PWD);
@@ -105,8 +105,8 @@ public class SwagLabs{
 	 //-------------------------------------------------
 	//-------verifying login-------	
 
-	 public static void verifyLogin() {
-			
+	 public static void verifyLogin() throws InterruptedException {
+		 Thread.sleep(1000);
 			WebElement header = getElement(head);
 			String text = header.getText();
 			
